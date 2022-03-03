@@ -1,4 +1,4 @@
-import User, { printUser } from "./user.js";
+import { default as User, printUser } from "./user.js";
 
 const user = new User("John", "Doe");
 
