@@ -1,12 +1,10 @@
-import { default as User, printUser } from "./user.js";
+/**
+ * This script is going to be downloaded by
+ * all user regardless of whether they are 
+ * admins or not.
+ */
+import { setupAdminUser } from './admin.js';
 
-
-/* const user = new User("John", "Doe");
-printUser(user); */
-
-setTimeout(() => {
-    import('./user.js').then(({ default: User, printUser }) => {
-        const user = new User("John", "Doe");
-        printUser(user);
-    });
-}, 5000);
+if (user.admin) {
+    setupAdminUser(user);
+}
