@@ -10,21 +10,11 @@ import spanishTranslations from './sp-translations.js';
 import frenchTranslations from './fr-translations.js'; */
 
 const user = { locale: "en" };
-// let translations;
 
-/* switch(user.locale) {
-    case "sp":
-        translations = spanishTranslations;
-        break;
-    case "fr":
-        translations = frenchTranslations;
-        break;
-    default:
-        translations = englishTranslations;
-}
-
-console.log(translations.HI); */
-
-import(`./${user.locale}-translations.js`).then(({ default: translations }) => {
+import(`./${user.locale}-translations.js`)
+.catch(() => {
+    return import('./en-translations.js');
+})
+.then(({ default: translations }) => {
     console.log(translations.HI);
 })
