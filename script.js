@@ -3,8 +3,10 @@
  * all user regardless of whether they are 
  * admins or not.
  */
-import { setupAdminUser } from './admin.js';
+// import { setupAdminUser } from './admin.js';
 
 if (user.admin) {
-    setupAdminUser(user);
+    import('./admin.js').then(({ setupAdminUser}) => {
+        setupAdminUser();
+    });
 }
