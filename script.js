@@ -1,20 +1,23 @@
 /**
- * This is a bunch of similar files that we only need
- * one of.
- * 
- * We are downloading all of them even when, we 
- * are only going to use one of them.
+ * This use case is all about saving time 
+ * and memory only if we need it.
  */
-/* import englishTranslations from './en-translations.js';
-import spanishTranslations from './sp-translations.js';
-import frenchTranslations from './fr-translations.js'; */
+import renderRectangle from './rectangle.js';
+import renderTriangle from './triangle.js';
 
-const user = { locale: "en" };
+const shapes = [
+    { type: "rectangle" },
+    { type: "triangle" },
+    { type: "rectangle"}
+];
 
-import(`./${user.locale}-translations.js`)
-.catch(() => {
-    return import('./en-translations.js');
-})
-.then(({ default: translations }) => {
-    console.log(translations.HI);
+shapes.forEach(shape => {
+    switch(shape.type) {
+        case "rectangle":
+            renderRectangle(shape);
+            break;
+        case "triangle":
+            renderTriangle(shape);
+            break;
+    }
 })
