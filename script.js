@@ -5,6 +5,6 @@ const user = new User("John", "Doe");
 printUser(user);
 
 
-import('./user.js').then(module => {
+import('./user.js').then(({ default: User, printUser }) => {
     console.log(module);
 });
