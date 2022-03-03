@@ -11,8 +11,8 @@ const shapes = [
     { type: "rectangle"}
 ];
 
-shapes.forEach(shape => {
-    import(`./${shape.type}.js`).then(({ default: renderShape }) => {
-        renderShape(shape);
-    });
+shapes.forEach(async shape => {
+    const { default: renderShape } = await import(`./${shape.type}.js`);
+
+    renderShape(shape);
 })
