@@ -5,14 +5,14 @@
  * We are downloading all of them even when, we 
  * are only going to use one of them.
  */
-import englishTranslations from './en-translations.js';
+/* import englishTranslations from './en-translations.js';
 import spanishTranslations from './sp-translations.js';
-import frenchTranslations from './fr-translations.js';
+import frenchTranslations from './fr-translations.js'; */
 
-const user = { locale: "fr" };
-let translations;
+const user = { locale: "en" };
+// let translations;
 
-switch(user.locale) {
+/* switch(user.locale) {
     case "sp":
         translations = spanishTranslations;
         break;
@@ -23,4 +23,8 @@ switch(user.locale) {
         translations = englishTranslations;
 }
 
-console.log(translations.HI);
+console.log(translations.HI); */
+
+import(`./${user.locale}-translations.js`).then(({ default: translations }) => {
+    console.log(translations.HI);
+})
